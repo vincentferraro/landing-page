@@ -50,7 +50,7 @@ const Hero = () => {
               Nom de l'entreprise
             </Typography>
             <Typography variant="h4" sx={{ marginTop: '10px' }}>
-              Services proposés : Dépannage, Installation, Remplacement
+                Votre expert du chauffage depuis 20 ans
             </Typography>
           </Box>
         </Grid>

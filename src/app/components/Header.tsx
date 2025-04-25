@@ -1,20 +1,43 @@
-// app/components/Header.tsx
+// components/Header.tsx
 
-import { AppBar, Toolbar, Typography, Box, Button } from '@mui/material'
+"use client";
+
+import { AppBar, Toolbar, Typography, Box, Button } from "@mui/material";
+
+const navItems = [
+  { label: "Accueil", href: "#accueil" },
+  { label: "Qui sommes-nous ?", href: "#a-propos" },
+  { label: "Nos services", href: "#services" },
+  { label: "Nous contacter", href: "#contact" },
+];
+
+const textColor = "#626262"
 
 export default function Header() {
   return (
-    <AppBar position="static" color="primary" elevation={1}>
-      <Toolbar sx={{ justifyContent: 'space-between' }}>
-        <Typography variant="h6" component="div">
-          MonSite
+    <AppBar position="fixed" sx={{ backgroundColor: "#FFFFFF"}} elevation={0}>
+      <Toolbar sx={{ justifyContent: "space-between" }}>
+        <Typography variant="h6" sx={{ color: textColor, fontWeight: "bold" }}>
+          Chauffage
         </Typography>
+
         <Box>
-          <Button color="inherit">Accueil</Button>
-          <Button color="inherit">À propos</Button>
-          <Button color="inherit">Contact</Button>
+          {navItems.map((item) => (
+            <Button
+              key={item.href}
+              href={item.href}
+              sx={{
+                color: textColor,
+                mx: 1,
+                fontWeight: 500,
+                textTransform: "none",
+              }}
+            >
+              {item.label}
+            </Button>
+          ))}
         </Box>
       </Toolbar>
     </AppBar>
-  )
+  );
 }

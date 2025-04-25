@@ -4,13 +4,16 @@ import CallToAction from "./components/CallToAction";
 import ContactForm from "./components/ContactForm";
 import ServicesGallery from "./components/ServiceGallery";
 import Footer from "./components/Footer";
+import AboutSection from "./components/AboutSection";
 export default function Home() {
   return (
     <main>
       <Hero />
-      <Features />
-      <CallToAction />
+      
+      <AboutSection />
+      {/* <CallToAction /> */}
       <ServicesGallery />
+      <Features />
       <ContactForm />
       <Footer />
     </main>

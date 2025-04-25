@@ -4,13 +4,13 @@
 import { Box, Grid, Typography } from '@mui/material'
 
 const services = [
+    {
+        title: 'Installation',
+        image: '/services/installation.png',
+      },
   {
     title: 'Dépannage',
     image: '/services/depannage.png',
-  },
-  {
-    title: 'Installation',
-    image: '/services/installation.png',
   },
   {
     title: 'Remplacement',
