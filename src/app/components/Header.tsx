@@ -11,11 +11,11 @@ const navItems = [
   { label: "Nous contacter", href: "#contact" },
 ];
 
-const textColor = "#626262"
+const textColor = "#FFFFFF"
 
 export default function Header() {
   return (
-    <AppBar position="fixed" sx={{ backgroundColor: "#FFFFFF"}} elevation={0}>
+    <AppBar position="fixed" sx={{ backgroundColor: "#473C44"}} elevation={0}>
       <Toolbar sx={{ justifyContent: "space-between" }}>
         <Typography variant="h6" sx={{ color: textColor, fontWeight: "bold" }}>
           Chauffage

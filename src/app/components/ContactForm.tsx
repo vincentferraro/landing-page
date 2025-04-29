@@ -8,26 +8,26 @@ const ContactForm = () => {
   const { formik, submitAttempted, setSubmitAttempted } = useContactForm();
 
   return (
-    <Box component="section" sx={{ p: 4, backgroundColor: "#f5f5f5" }}>
-      <Grid container spacing={4} alignItems="center">
-        <Grid item xs={12} md={5}>
-          <Box
-            component="img"
-            src="/equipe.jpg"
-            alt="Nous contacter"
-            sx={{ width: "100%", height: "auto", borderRadius: 2 }}
-          />
+    <Box component="section" sx={{ p: 4, backgroundColor: "#f5f5f5"}} display='flex' justifyContent='center' >
+        <Grid container display='flex' flexDirection='row'>
+        <Grid container display='flex' flexDirection='column' size={{xs:5, md:5}} spacing={2} alignItems="center">-
+          <Typography variant="h5" gutterBottom>Nos partenaires </Typography>
+            <Grid container size={{ xs:12, sm:12}} mt={4} display="flex" flexDirection='row' justifyContent="center" spacing={4} flexWrap="wrap">
+                  <Grid size={{xs:6, sm:6}} component="img" src="partenaires/logo1.jpg" alt="Partenaire 1" sx={{ width: 100 }} />
+                  <Grid size={{xs:6, sm:6}} component="img" src="partenaires/logo1.jpg" alt="Partenaire 2" sx={{ width: 100 }} />
+                  <Grid size={{xs:6, sm:6}} component="img" src="partenaires/logo1.jpg" alt="Partenaire 3" sx={{ width: 100 }} />
+                  <Grid size={{xs:6, sm:6}} component="img" src="partenaires/logo1.jpg" alt="Partenaire 4" sx={{ width: 100 }} />
+                </Grid>
+        </Grid>
+        <Grid container size={{ xs:1, md:1}} display='flex' justifyContent='center'>
+          <Divider orientation="vertical" sx={{ height: "100%", borderColor: "#000000" }} />
         </Grid>
 
-        <Grid item xs={12} md={1}>
-          <Divider orientation="vertical" sx={{ height: "100%", borderColor: "#ccc" }} />
-        </Grid>
-
-        <Grid item xs={12} md={6}>
+        <Grid container size={{xs:5, md:5}} display='flex' flexDirection='column' justifyContent='center'>
           <Typography variant="h5" gutterBottom>Contactez-nous</Typography>
           <form onSubmit={formik.handleSubmit}>
             <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
+              <Grid container size={{xs:12, sm:6}}>
                 <TextField
                   fullWidth
                   label="Nom"
@@ -38,7 +38,7 @@ const ContactForm = () => {
                   helperText={formik.touched.nom && formik.errors.nom}
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid container size={{xs:12, sm:6}}>
                 <TextField
                   fullWidth
                   label="Prénom"
@@ -49,7 +49,7 @@ const ContactForm = () => {
                   helperText={formik.touched.prenom && formik.errors.prenom}
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid container size={{xs:12}}>
                 <TextField
                   fullWidth
                   label="Adresse email"
@@ -61,7 +61,7 @@ const ContactForm = () => {
                   helperText={formik.touched.email && formik.errors.email}
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid container size={{xs:12}}>
                 <TextField
                   fullWidth
                   label="Message"
@@ -74,23 +74,16 @@ const ContactForm = () => {
                   helperText={formik.touched.message && formik.errors.message}
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid container size={{xs:12}}>
                 <Button type="submit" variant="contained" fullWidth>
                   Envoyer
                 </Button>
               </Grid>
             </Grid>
           </form>
-
-          {/* Logos partenaires */}
-          <Box mt={4} display="flex" justifyContent="center" gap={4} flexWrap="wrap">
-            <Box component="img" src="/logo1.jpg" alt="Partenaire 1" sx={{ width: 100 }} />
-            <Box component="img" src="/logo2.jpg" alt="Partenaire 2" sx={{ width: 100 }} />
-            <Box component="img" src="/logo3.jpg" alt="Partenaire 3" sx={{ width: 100 }} />
-            <Box component="img" src="/logo4.jpg" alt="Partenaire 4" sx={{ width: 100 }} />
-          </Box>
+          
         </Grid>
-      </Grid>
+        </Grid>
     </Box>
   );
 };

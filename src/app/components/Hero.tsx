@@ -1,33 +1,45 @@
 // /components/Hero.tsx
 'use client'
 import React, { useState, useEffect } from 'react';
-import { Box, Typography, IconButton } from '@mui/material';
-import { Grid } from '@mui/material';
+import { Box, Typography, IconButton, Grid, GlobalStyles} from '@mui/material';
+
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 
 const Hero = () => {
-  const [showArrow, setShowArrow] = useState(true);
-
-  // Fonction pour vérifier le scroll et cacher la flèche
-  const handleScroll = () => {
-    if (window.scrollY > 50) {  // Si l'utilisateur a défilé de 50px
-      setShowArrow(false);
-    } else {
-      setShowArrow(true);
-    }
-  };
-
+  const [isVisible, setIsVisible] = useState(true);   // contrôle l'opacité
+  
   useEffect(() => {
-    // Ajout de l'événement de scroll lors du montage
-    window.addEventListener('scroll', handleScroll);
+    let timeoutId : NodeJS.Timeout;
 
-    // Nettoyage de l'événement au démontage
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        timeoutId = setTimeout(()=>setIsVisible(false),500);  // d'abord opacité 0
+      } else {
+        // setTimeout(() => setIsVisible(true), 10);  // remet l'opacité à 1 (petit délai pour éviter un bug)
+        clearTimeout(timeoutId)
+      }
     };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
+    <>
+    {/* On injecte l'animation globalement */}
+    <GlobalStyles
+        styles={{
+          '@keyframes bounce': {
+            '0%, 100%': {
+              transform: 'translateY(0)',
+            },
+            '50%': {
+              transform: 'translateY(-10px)',
+            },
+          },
+        }}
+      />
+
     <Box
       sx={{
         backgroundImage: 'url(/presentation.jpg)',
@@ -57,7 +69,7 @@ const Hero = () => {
       </Grid>
 
       {/* Flèche vers le bas */}
-      {showArrow && (
+      {isVisible && (
         <Box
           sx={{
             position: 'absolute',
@@ -65,7 +77,10 @@ const Hero = () => {
             left: '50%',
             transform: 'translateX(-50%)',
             cursor: 'pointer',
-            animation: 'bounce 1s infinite', // Animation pour l'effet de rebond
+            animation: 'bounce 1s infinite', 
+            opacity: isVisible ? 1 : 0,     
+            transition: 'opacity 1s ease', 
+            pointerEvents: isVisible ? 'auto' : 'none',
           }}
         >
           {/* Cercle autour de la flèche */}
@@ -91,6 +106,8 @@ const Hero = () => {
         </Box>
       )}
     </Box>
+    </>
+    
   );
 };
 
