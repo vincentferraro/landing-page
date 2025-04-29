@@ -10,7 +10,7 @@ const ContactForm = () => {
   return (
     <Box component="section" sx={{ p: 4, backgroundColor: "#f5f5f5"}} display='flex' justifyContent='center' >
         <Grid container display='flex' flexDirection='row'>
-        <Grid container display='flex' flexDirection='column' size={{xs:5, md:5}} spacing={2} alignItems="center">-
+        <Grid container display='flex' flexDirection='column' size={{xs:5, md:5}} spacing={2} alignItems="center">
           <Typography variant="h5" gutterBottom>Nos partenaires </Typography>
             <Grid container size={{ xs:12, sm:12}} mt={4} display="flex" flexDirection='row' justifyContent="center" spacing={4} flexWrap="wrap">
                   <Grid size={{xs:6, sm:6}} component="img" src="partenaires/logo1.jpg" alt="Partenaire 1" sx={{ width: 100 }} />
@@ -47,6 +47,17 @@ const ContactForm = () => {
                   onChange={formik.handleChange}
                   error={formik.touched.prenom && Boolean(formik.errors.prenom)}
                   helperText={formik.touched.prenom && formik.errors.prenom}
+                />
+              </Grid>
+              <Grid container size={{xs:12}}>
+                <TextField
+                  fullWidth
+                  label="Numéro de téléphone"
+                  name="phone"
+                  value={formik.values.phone}
+                  onChange={formik.handleChange}
+                  error={formik.touched.phone && Boolean(formik.errors.phone)}
+                  helperText={formik.touched.phone && formik.errors.phone}
                 />
               </Grid>
               <Grid container size={{xs:12}}>

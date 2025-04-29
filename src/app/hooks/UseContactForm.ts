@@ -10,12 +10,14 @@ export const useContactForm = () => {
     initialValues: {
       nom: "",
       prenom: "",
+      phone:"",
       email: "",
       message: "",
     },
     validationSchema: Yup.object({
       nom: Yup.string().required("Champ requis"),
       prenom: Yup.string().required("Champ requis"),
+      phone: Yup.string().required("Champ requis"),
       email: Yup.string().email("Email invalide").required("Champ requis"),
       message: Yup.string().required("Champ requis"),
     }),
