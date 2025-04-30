@@ -1,10 +1,11 @@
 // hooks/useContactForm.ts
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const useContactForm = () => {
   const [submitAttempted, setSubmitAttempted] = useState(false);
+  const [emailSent, setEmailSent] = useState(false)
 
   const formik = useFormik({
     initialValues: {
@@ -38,6 +39,7 @@ export const useContactForm = () => {
 
         if(response.ok){
           console.log('success', result)
+          setEmailSent(true)
           formik.resetForm()
         }else{
           throw new Error(result.error || "Erreur inconnue")
@@ -49,6 +51,14 @@ export const useContactForm = () => {
       
     },
   });
+  useEffect(() => {
+    if (emailSent) {
+      const timer = setTimeout(() => {
+        setEmailSent(false);
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [emailSent]);
 
-  return { formik, submitAttempted, setSubmitAttempted };
+  return { formik, submitAttempted, setSubmitAttempted, emailSent };
 };

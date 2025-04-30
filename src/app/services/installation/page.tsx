@@ -1,0 +1,85 @@
+
+import Header from "@/app/components/Header"
+import Footer from "@/app/components/Footer";
+import ContactForm from "@/app/components/ContactForm";
+import { Box, Container, Typography, Grid } from "@mui/material";
+import Image from "next/image";
+
+const services = [
+    {
+      title: "Installation de chaudière gaz",
+      description:
+        "Nous installons des chaudières gaz modernes, performantes et économes en énergie. Une solution idéale pour un chauffage central efficace dans votre logement.",
+      image: "/services/chaudiere.jpg",
+    },
+    {
+      title: "Installation de pompe à chaleur",
+      description:
+        "Profitez d’un système de chauffage écologique et économique grâce à nos pompes à chaleur air/eau ou air/air, adaptées à tous les types de logements.",
+      image: "/services/pompe-a-chaleur.jpeg",
+    },
+    {
+      title: "Installation de chauffage à pellets",
+      description:
+        "Nos installations de poêles et chaudières à pellets vous offrent une solution de chauffage respectueuse de l’environnement et économique à l’usage.",
+      image: "/services/pellets.jpg",
+    },
+    {
+      title: "Installation de plancher chauffant",
+      description:
+        "Pour un confort thermique optimal et une chaleur homogène, le plancher chauffant est une solution invisible et moderne que nous installons avec précision.",
+      image: "/services/plancher-chauffant.jpg",
+    },
+    {
+      title: "Installation de radiateurs",
+      description:
+        "Nous installons une large gamme de radiateurs (électriques, à eau, design ou standards) adaptés à vos besoins en termes de style, de puissance et d’efficacité.",
+      image: "/services/radiateur.jpg",
+    },
+  ];
+
+export default function InstallationPage() {
+  return (
+    <Box component="main" display="flex" flexDirection="column" sx={{ pt: 10 }}>
+      <Container>
+        <Typography variant="h3" align="center" gutterBottom>
+          Nos services d’installation de chauffage
+        </Typography>
+        <Typography variant="body1" align="center" mb={6} color="text.secondary">
+          Découvrez nos solutions professionnelles pour un confort thermique optimal, adaptées à chaque habitation.
+        </Typography>
+
+        {services.map((service, index) => (
+          <Grid
+            container
+            spacing={4}
+            alignItems="center"
+            direction={index % 2 === 0 ? "row" : "row-reverse"}
+            sx={{ mb: 6 }}
+            key={index}
+          >
+            <Grid container size={{ xs:12, md:6}}>
+              <Image
+                src={service.image}
+                alt={service.title}
+                width={600}
+                height={400}
+                style={{ width: "100%", height: "auto", borderRadius: "12px" }}
+              />
+            </Grid>
+            <Grid container size={{ xs:12, md:6}}>
+              <Typography variant="h5" gutterBottom>
+                {service.title}
+              </Typography>
+              <Typography variant="body1" color="text.secondary">
+                {service.description}
+              </Typography>
+            </Grid>
+          </Grid>
+        ))}
+      </Container>
+      <ContactForm />
+      <Footer />
+    </Box>
+  );
+}

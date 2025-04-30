@@ -2,19 +2,24 @@
 'use client'
 
 import { Box, Grid, Typography } from '@mui/material'
+import Link from 'next/link'
+import Image from "next/image";
 
 const services = [
     {
         title: 'Installation',
         image: '/services/installation.png',
+        link:"/services/installation"
       },
   {
     title: 'Dépannage',
     image: '/services/depannage.png',
+    link:""
   },
   {
     title: 'Remplacement',
     image: '/services/remplacement.png',
+    link:""
   },
 ]
 
@@ -47,7 +52,8 @@ export default function ServicesGallery() {
                 },
               }}
             >
-              <img
+            <Link href={service.link}>
+              <Image
                 src={service.image}
                 alt={service.title}
                 className="service-img"
@@ -79,6 +85,7 @@ export default function ServicesGallery() {
               >
                 {service.title}
               </Box>
+              </Link>
             </Box>
           </Grid>
         ))}

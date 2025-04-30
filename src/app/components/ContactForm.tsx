@@ -2,21 +2,22 @@
 "use client";
 
 import { Box, Button, Grid, TextField, Typography, Divider } from "@mui/material";
+import Image from "next/image";
+import logo1 from "../../../public/partenaires/logo1.jpg"
 import { useContactForm } from "../hooks/UseContactForm";
-
 const ContactForm = () => {
-  const { formik, submitAttempted, setSubmitAttempted } = useContactForm();
+  const { formik, submitAttempted, setSubmitAttempted, emailSent } = useContactForm();
 
   return (
     <Box component="section" sx={{ p: 4, backgroundColor: "#f5f5f5"}} display='flex' justifyContent='center' >
         <Grid container display='flex' flexDirection='row'>
         <Grid container display='flex' flexDirection='column' size={{xs:5, md:5}} spacing={2} alignItems="center">
           <Typography variant="h5" gutterBottom>Nos partenaires </Typography>
-            <Grid container size={{ xs:12, sm:12}} mt={4} display="flex" flexDirection='row' justifyContent="center" spacing={4} flexWrap="wrap">
-                  <Grid size={{xs:6, sm:6}} component="img" src="partenaires/logo1.jpg" alt="Partenaire 1" sx={{ width: 100 }} />
-                  <Grid size={{xs:6, sm:6}} component="img" src="partenaires/logo1.jpg" alt="Partenaire 2" sx={{ width: 100 }} />
-                  <Grid size={{xs:6, sm:6}} component="img" src="partenaires/logo1.jpg" alt="Partenaire 3" sx={{ width: 100 }} />
-                  <Grid size={{xs:6, sm:6}} component="img" src="partenaires/logo1.jpg" alt="Partenaire 4" sx={{ width: 100 }} />
+            <Grid container size={{ xs:12, sm:12}} mt={4} display="flex" flexDirection='row' justifyContent="center"  flexWrap="wrap">
+                  <Grid size={{xs:6, sm:6}} > <Image src={logo1}alt="Partenaire 1" width={100}height={100}style={{ objectFit: "contain" }}/></Grid>
+                  <Grid size={{xs:6, sm:6}} > <Image src={logo1}alt="Partenaire 1" width={100}height={100}style={{ objectFit: "contain" }}/></Grid>
+                  <Grid size={{xs:6, sm:6}} > <Image src={logo1}alt="Partenaire 1" width={100}height={100}style={{ objectFit: "contain" }}/></Grid>
+                  <Grid size={{xs:6, sm:6}} > <Image src={logo1}alt="Partenaire 1" width={100}height={100}style={{ objectFit: "contain" }}/></Grid>
                 </Grid>
         </Grid>
         <Grid container size={{ xs:1, md:1}} display='flex' justifyContent='center'>
@@ -85,10 +86,14 @@ const ContactForm = () => {
                   helperText={formik.touched.message && formik.errors.message}
                 />
               </Grid>
-              <Grid container size={{xs:12}}>
+              <Grid container size={{xs:12}} display='flex' flexDirection={'column'} justifyContent='center' justifyItems='center'>
                 <Button type="submit" variant="contained" fullWidth>
                   Envoyer
                 </Button>
+                {emailSent && (
+                  <Typography color="success.main" textAlign="center" sx={{ mt: 2 }}>
+                    ✅ Votre message a bien été envoyé.
+                  </Typography>)}
               </Grid>
             </Grid>
           </form>
