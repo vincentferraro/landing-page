@@ -13,7 +13,7 @@ const Hero = () => {
 
     const handleScroll = () => {
       if (window.scrollY > 50) {
-        timeoutId = setTimeout(()=>setIsVisible(false),500);  // d'abord opacité 0
+        timeoutId = setTimeout(()=>setIsVisible(false),300);  // d'abord opacité 0
       } else {
         // setTimeout(() => setIsVisible(true), 10);  // remet l'opacité à 1 (petit délai pour éviter un bug)
         clearTimeout(timeoutId)

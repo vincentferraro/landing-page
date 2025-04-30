@@ -17,9 +17,9 @@ const services = [
     link:"/services/sanitaire"
   },
   {
-    title: 'Plomberie',
+    title: 'Dépannage',
     image: '/services/remplacement.png',
-    link:""
+    link:"/services/depannage"
   },
 ]
 

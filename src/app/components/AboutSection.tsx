@@ -6,7 +6,8 @@ import { Box, Grid, Typography } from "@mui/material";
 
 export default function AboutSection() {
   return (
-    <Box
+    <Box 
+    id="a-propos"
       sx={{
         py: 8,
         px: { xs: 2, md: 6 },

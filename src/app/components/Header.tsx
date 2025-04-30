@@ -5,12 +5,14 @@
 import { AppBar, Toolbar, Typography, Box, Button } from "@mui/material";
 
 const navItems = [
-  { label: "Accueil", href: "#accueil" },
-  { label: "Qui sommes-nous ?", href: "#a-propos" },
-  { label: "Nos services", href: "#services" },
-  { label: "Nous contacter", href: "#contact" },
+  { label: "Accueil", href: "/", type: "anchor" },
+  { label: "Qui sommes-nous ?", href: "#a-propos", type: "anchor" },
+  { label: "Nos services", href: "#services", type: "anchor" },
+  { label: "Chauffage", href: "/services/chauffage", type: "page" },
+  { label: "Sanitaire", href: "/services/sanitaire", type: "page" },
+  { label: "Dépannage", href: "/services/depannage", type: "page" },
+  { label: "Nous contacter", href: "#contact", type: "anchor" },
 ];
-
 const textColor = "#FFFFFF"
 
 export default function Header() {

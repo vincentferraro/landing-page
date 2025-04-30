@@ -8,7 +8,7 @@ const services = [
     title: "Installation de salle de bain",
     description:
       "Conception et aménagement complet de votre salle de bain : plomberie, équipements sanitaires, revêtements, pour un espace moderne et fonctionnel.",
-    image: "/services/salle-de-bain.jpeg",
+    image: "/services/salle-de-bain.png",
   },
   {
     title: "Remplacement de robinetterie",
