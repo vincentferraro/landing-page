@@ -7,17 +7,17 @@ import Image from "next/image";
 
 const services = [
     {
-        title: 'Installation',
+        title: 'Chauffage',
         image: '/services/installation.png',
-        link:"/services/installation"
+        link:"/services/chauffage"
       },
   {
-    title: 'Dépannage',
+    title: 'Sanitaire',
     image: '/services/depannage.png',
-    link:""
+    link:"/services/sanitaire"
   },
   {
-    title: 'Remplacement',
+    title: 'Plomberie',
     image: '/services/remplacement.png',
     link:""
   },
@@ -54,6 +54,8 @@ export default function ServicesGallery() {
             >
             <Link href={service.link}>
               <Image
+                width={100}
+                height={100}
                 src={service.image}
                 alt={service.title}
                 className="service-img"
