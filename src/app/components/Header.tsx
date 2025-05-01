@@ -14,7 +14,8 @@ const navItems = [
   { label: "Nous contacter", href: "#contact", type: "anchor" },
 ];
 
-const textColor = "#FFFFFF";
+const textColor = "#000000";
+const headerColor="rgba(71, 60, 68, 0.9)";
 
 export default function Header() {
   return (
@@ -34,7 +35,7 @@ export default function Header() {
       <AppBar
         position="static"
         sx={{
-          backgroundColor: "rgba(71, 60, 68, 0.9)",
+          backgroundColor: '#F5F5F5',
           backdropFilter: "blur(8px)",
         }}
         elevation={0}

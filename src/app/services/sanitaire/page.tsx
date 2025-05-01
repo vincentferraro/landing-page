@@ -38,7 +38,9 @@ const services = [
 
 export default function SanitairePage() {
   return (
-    <Box component="main" display="flex" flexDirection="column" sx={{ pt: 10 }}>
+    <Box component="main" display="flex" flexDirection="column" sx={{ pt: 18 }} style={{
+        backgroundColor:'#F5F5F5'
+        }}>
       <Container>
         <Typography variant="h3" align="center" gutterBottom>
           Nos services d’installation sanitaire
