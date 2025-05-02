@@ -12,6 +12,7 @@ export default function AboutSection() {
         py: 8,
         px: { xs: 2, md: 6 },
         backgroundColor: "#f5f5f5",
+        scrollMarginTop: '100px',
       }}
     >
       <Typography

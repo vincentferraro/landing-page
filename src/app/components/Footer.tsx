@@ -3,6 +3,7 @@
 import { Box, Grid, Typography, IconButton, Link as MuiLink } from '@mui/material'
 import { Facebook, Twitter, Instagram, LinkedIn } from '@mui/icons-material'
 import Link from 'next/link'
+import { navItems } from './Header' // liens Header
 
 export default function Footer() {
   return (
@@ -41,21 +42,15 @@ export default function Footer() {
         <Grid container size={{xs:12, md:6}} display='flex' justifyContent='center'>
 
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-            <MuiLink component={Link} href="/" underline="hover" color="inherit">
-              Accueil
-            </MuiLink>
-            <MuiLink component={Link} href="/#qui-sommes-nous" underline="hover" color="inherit">
-              Qui sommes-nous
-            </MuiLink>
-            <MuiLink component={Link} href="/#nos-atouts" underline="hover" color="inherit">
-              Nos atouts
-            </MuiLink>
-            <MuiLink component={Link} href="/#services" underline="hover" color="inherit">
-              Nos services
-            </MuiLink>
-            <MuiLink component={Link} href="/#contact" underline="hover" color="inherit">
-              Contact
-            </MuiLink>
+
+            { navItems.map((item,key)=>{
+              return(
+                <MuiLink key={key} component={Link} href={item.href} underline="hover" color="inherit">
+                {item.label}
+              </MuiLink>
+              )
+            })}
+            
           </Box>
         </Grid>
       </Grid>
@@ -71,6 +66,7 @@ export default function Footer() {
           flexWrap: 'wrap',
         }}
       >
+        
         <MuiLink component={Link} href="/mentions-legales" underline="hover" color="inherit">
           Mentions légales
         </MuiLink>

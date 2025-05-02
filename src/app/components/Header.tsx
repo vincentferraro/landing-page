@@ -1,13 +1,16 @@
-// components/Header.tsx
-
 "use client";
 
-import { AppBar, Toolbar, Typography, Box, Button } from "@mui/material";
+import { AppBar, Toolbar, Typography, Box, Button, IconButton, Drawer, List, ListItem, ListItemText, useMediaQuery, useTheme } from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import { useState } from "react";
+
+
+const headerColor="rgba(71, 60, 68, 0.9)"; // Keep this headerColor
+
+
 
 const navItems = [
   { label: "Accueil", href: "/", type: "anchor" },
-  { label: "Qui sommes-nous ?", href: "#a-propos", type: "anchor" },
-  { label: "Nos services", href: "#services", type: "anchor" },
   { label: "Chauffage", href: "/services/chauffage", type: "page" },
   { label: "Sanitaire", href: "/services/sanitaire", type: "page" },
   { label: "Dépannage", href: "/services/depannage", type: "page" },
@@ -15,9 +18,16 @@ const navItems = [
 ];
 
 const textColor = "#000000";
-const headerColor="rgba(71, 60, 68, 0.9)";
 
 export default function Header() {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
+  const toggleDrawer = (open: boolean) => () => {
+    setDrawerOpen(open);
+  };
+
   return (
     <Box
       sx={{
@@ -32,37 +42,53 @@ export default function Header() {
         boxShadow: 4,
       }}
     >
-      <AppBar
-        position="static"
-        sx={{
-          backgroundColor: '#F5F5F5',
-          backdropFilter: "blur(8px)",
-        }}
-        elevation={0}
-      >
+      <AppBar position="static" sx={{ backgroundColor: '#F5F5F5', backdropFilter: "blur(8px)" }} elevation={0}>
         <Toolbar sx={{ justifyContent: "space-between" }}>
           <Typography variant="h6" sx={{ color: textColor, fontWeight: "bold" }}>
             Chauffage
           </Typography>
 
-          <Box>
-            {navItems.map((item) => (
-              <Button
-                key={item.href}
-                href={item.href}
-                sx={{
-                  color: textColor,
-                  mx: 1,
-                  fontWeight: 500,
-                  textTransform: "none",
-                }}
-              >
-                {item.label}
-              </Button>
-            ))}
-          </Box>
+          {isMobile ? (
+            <>
+              <IconButton edge="end" color="inherit" onClick={toggleDrawer(true)}>
+                <MenuIcon sx={{ color: textColor }} />
+              </IconButton>
+              <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}>
+                <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
+                  <List>
+                    {navItems.map((item) => (
+                      <ListItem key={item.href} component="a" href={item.href}>
+                        <ListItemText primary={item.label} />
+                      </ListItem>
+                    ))}
+                  </List>
+                </Box>
+              </Drawer>
+            </>
+          ) : (
+            <Box>
+              {navItems.map((item) => (
+                <Button
+                  key={item.href}
+                  href={item.href}
+                  sx={{
+                    color: textColor,
+                    mx: 1,
+                    fontWeight: 500,
+                    textTransform: "none",
+                  }}
+                >
+                  {item.label}
+                </Button>
+              ))}
+            </Box>
+          )}
         </Toolbar>
       </AppBar>
     </Box>
   );
+}
+
+export {
+  navItems
 }

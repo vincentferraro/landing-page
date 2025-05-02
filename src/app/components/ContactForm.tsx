@@ -9,7 +9,7 @@ const ContactForm = () => {
   const { formik, submitAttempted, setSubmitAttempted, emailSent } = useContactForm();
 
   return (
-    <Box component="section" sx={{ p: 4, backgroundColor: "#f5f5f5"}} display='flex' justifyContent='center' >
+    <Box id="contact" component="section" sx={{ p: 4, backgroundColor: "#f5f5f5"}} display='flex' justifyContent='center' >
         <Grid container display='flex' flexDirection='row'>
         <Grid container display='flex' flexDirection='column' size={{xs:5, md:5}} spacing={2} alignItems="center">
           <Typography variant="h5" gutterBottom>Nos partenaires </Typography>

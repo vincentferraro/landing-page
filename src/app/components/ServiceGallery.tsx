@@ -33,65 +33,77 @@ export default function ServicesGallery() {
         Découvrez les prestations que nous proposons dans le domaine du chauffage.
       </Typography>
 
-      <Grid container spacing={4} justifyContent="center" sx={{ mt: 4 }}>
-        {services.map((service, index) => (
-          <Grid container key={index} size={{ xs:12, sm:6, md:4}}>
-            <Box
-              sx={{
-                position: 'relative',
-                overflow: 'hidden',
-                borderRadius: 2,
-                boxShadow: 3,
-                cursor: 'pointer',
-                '&:hover .service-img': {
-                  transform: 'scale(1.05)',
-                  filter: 'brightness(0.6)',
-                },
-                '&:hover .overlay': {
-                  backgroundColor: 'rgba(0, 0, 0, 0.4)',
-                },
-              }}
-            >
-            <Link href={service.link}>
-              <Image
-                width={100}
-                height={100}
-                src={service.image}
-                alt={service.title}
-                className="service-img"
-                style={{
-                  width: '100%',
-                  height: 'auto',
-                  display: 'block',
-                  transition: 'transform 0.3s ease, filter 0.3s ease',
-                }}
-              />
-              <Box
-                className="overlay"
-                sx={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  width: '100%',
-                  height: '100%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#fff',
-                  fontWeight: 'bold',
-                  fontSize: '1.5rem',
-                  textShadow: '1px 1px 5px rgba(0,0,0,0.8)',
-                  transition: 'background-color 0.3s ease',
-                  backgroundColor: 'transparent',
-                }}
-              >
-                {service.title}
-              </Box>
-              </Link>
-            </Box>
-          </Grid>
-        ))}
-      </Grid>
+      <Grid
+  container
+  spacing={4}
+  justifyContent="space-around"
+  sx={{ mt: 6 }}
+>
+  {services.map((service, index) => (
+    <Grid
+      container
+      key={index}
+      size={{ xs:12, sm:6, md:4}}
+      sx={{ display: 'flex', justifyContent: 'center' }}
+    >
+      <Link href={service.link} style={{ textDecoration: 'none' }}>
+        <Box
+          sx={{
+            width: 400,
+            height: 450,
+            position: 'relative',
+            overflow: 'hidden',
+            borderRadius: 2,
+            boxShadow: 4,
+            cursor: 'pointer',
+            '&:hover .service-img': {
+              transform: 'scale(1.05)',
+              filter: 'brightness(0.7)',
+            },
+            '&:hover .overlay': {
+              backgroundColor: 'rgba(0, 0, 0, 0.4)',
+            },
+          }}
+        >
+          <Image
+            src={service.image}
+            alt={service.title}
+            fill
+            className="service-img"
+            style={{
+              objectFit: 'cover',
+              transition: 'transform 0.3s ease, filter 0.3s ease',
+            }}
+          />
+          <Box
+            className="overlay"
+            sx={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: '#fff',
+              fontWeight: 'bold',
+              fontSize: '1.4rem',
+              textAlign: 'center',
+              textShadow: '1px 1px 5px rgba(0,0,0,0.8)',
+              transition: 'background-color 0.3s ease',
+              backgroundColor: 'transparent',
+              px: 2,
+            }}
+          >
+            {service.title}
+          </Box>
+        </Box>
+      </Link>
+    </Grid>
+  ))}
+</Grid>
+
     </Box>
   )
 }
