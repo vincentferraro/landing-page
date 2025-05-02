@@ -13,11 +13,11 @@ const ContactForm = () => {
         <Grid container display='flex' flexDirection='row'>
         <Grid container display='flex' flexDirection='column' size={{xs:5, md:5}} spacing={2} alignItems="center">
           <Typography variant="h5" gutterBottom>Nos partenaires </Typography>
-            <Grid container size={{ xs:12, sm:12}} mt={4} display="flex" flexDirection='row' justifyContent="center"  flexWrap="wrap">
-                  <Grid size={{xs:6, sm:6}} > <Image src={logo1}alt="Partenaire 1" width={100}height={100}style={{ objectFit: "contain" }}/></Grid>
-                  <Grid size={{xs:6, sm:6}} > <Image src={logo1}alt="Partenaire 1" width={100}height={100}style={{ objectFit: "contain" }}/></Grid>
-                  <Grid size={{xs:6, sm:6}} > <Image src={logo1}alt="Partenaire 1" width={100}height={100}style={{ objectFit: "contain" }}/></Grid>
-                  <Grid size={{xs:6, sm:6}} > <Image src={logo1}alt="Partenaire 1" width={100}height={100}style={{ objectFit: "contain" }}/></Grid>
+            <Grid container size={{ xs:12, sm:12}} mt={4} height="auto" display="flex" flexDirection='row' justifyContent="center"  alignItems="center" flexWrap="wrap">
+                  <Grid display="flex" justifyContent="center"  alignItems="center"size={{xs:6, sm:6}} ><Image src={logo1}alt="Logo d'entreprise avec une flamme et le nom chauffage" width={100}height={100}style={{ objectFit: "contain" }}/></Grid>
+                  <Grid display="flex" justifyContent="center"  alignItems="center"size={{xs:6, sm:6}} > <Image src={logo1}alt="Logo d'entreprise avec une flamme et le nom chauffage" width={100}height={100}style={{ objectFit: "contain" }}/></Grid>
+                  <Grid display="flex" justifyContent="center"  alignItems="center"size={{xs:6, sm:6}} ><Image src={logo1}alt="Logo d'entreprise avec une flamme et le nom chauffage" width={100}height={100}style={{ objectFit: "contain" }}/></Grid>
+                  <Grid display="flex" justifyContent="center"  alignItems="center"size={{xs:6, sm:6}} > <Image src={logo1}alt="Logo d'entreprise avec une flamme et le nom chauffage" width={100}height={100}style={{ objectFit: "contain" }}/></Grid>
                 </Grid>
         </Grid>
         <Grid container size={{ xs:1, md:1}} display='flex' justifyContent='center'>

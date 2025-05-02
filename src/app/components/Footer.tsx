@@ -73,8 +73,8 @@ export default function Footer() {
         <MuiLink component={Link} href="/cookies" underline="hover" color="inherit">
           Cookies
         </MuiLink>
-        <MuiLink component={Link} href="/rgpd" underline="hover" color="inherit">
-          RGPD
+        <MuiLink component={Link} href="/confidentialite" underline="hover" color="inherit">
+          Politique de confidentialité
         </MuiLink>
       </Box>
     </Box>

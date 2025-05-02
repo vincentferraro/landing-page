@@ -13,7 +13,7 @@ const services = [
       },
   {
     title: 'Sanitaire',
-    image: '/services/depannage.png',
+    image: '/services/sanitaire.avif',
     link:"/services/sanitaire"
   },
   {
@@ -30,7 +30,7 @@ export default function ServicesGallery() {
         Nos services
       </Typography>
       <Typography variant="h6" color="text.secondary" >
-        Découvrez les prestations que nous proposons dans le domaine du chauffage.
+        Découvrez les prestations que nous proposons.
       </Typography>
 
       <Grid

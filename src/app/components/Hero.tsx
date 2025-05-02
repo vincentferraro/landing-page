@@ -15,7 +15,7 @@ const Hero = () => {
       if (window.scrollY > 50) {
         timeoutId = setTimeout(()=>setIsVisible(false),300);  // d'abord opacité 0
       } else {
-        // setTimeout(() => setIsVisible(true), 10);  // remet l'opacité à 1 (petit délai pour éviter un bug)
+        
         clearTimeout(timeoutId)
       }
     };
@@ -59,7 +59,7 @@ const Hero = () => {
         <Grid container size={{xs:12}}>
           <Box>
             <Typography variant="h2" sx={{ fontWeight: 'bold' }}>
-              Nom de l'entreprise
+              Chauff'Express
             </Typography>
             <Typography variant="h4" sx={{ marginTop: '10px' }}>
                 Votre expert du chauffage depuis 20 ans

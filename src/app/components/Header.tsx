@@ -3,7 +3,8 @@
 import { AppBar, Toolbar, Typography, Box, Button, IconButton, Drawer, List, ListItem, ListItemText, useMediaQuery, useTheme } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useState } from "react";
-
+import Image from "next/image";
+import Logo from "../../../public/chauffexpress_logo.png"
 
 const headerColor="rgba(71, 60, 68, 0.9)"; // Keep this headerColor
 
@@ -44,9 +45,13 @@ export default function Header() {
     >
       <AppBar position="static" sx={{ backgroundColor: '#F5F5F5', backdropFilter: "blur(8px)" }} elevation={0}>
         <Toolbar sx={{ justifyContent: "space-between" }}>
-          <Typography variant="h6" sx={{ color: textColor, fontWeight: "bold" }}>
-            Chauffage
-          </Typography>
+        <Image
+                src={Logo}
+                alt="Logo chauff express avec radiateur et flamme au dessus du texte"
+                width={50}
+                height={50}
+              />
+          
 
           {isMobile ? (
             <>

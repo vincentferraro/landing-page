@@ -1,4 +1,3 @@
-import Footer from "@/app/components/Footer";
 import ContactForm from "@/app/components/ContactForm";
 import { Box, Container, Typography, Grid } from "@mui/material";
 import Image from "next/image";
@@ -9,24 +8,28 @@ const services = [
       description:
         "Nos techniciens interviennent rapidement pour diagnostiquer et réparer tous types de chaudières (gaz, fioul, à condensation), assurant sécurité et performance.",
       image: "/services/chaudiere-reparation.jpg",
+      alt:"Technicien effectuant des réparations sur une chaudière"
     },
     {
       title: "Débouchage de canalisation",
       description:
         "Grâce à des équipements professionnels (caméras, furet électrique), nous débouchons efficacement vos canalisations, même en cas de bouchon profond ou récurrent.",
       image: "/services/debouchage.jpg",
+      alt:"Technicien insérant un tube dans une canalisation"
     },
     {
       title: "Réparation de fuites",
       description:
         "Fuites visibles ou encastrées ? Nous intervenons avec précision pour localiser et réparer vos fuites d’eau sans dégâts inutiles.",
       image: "/services/fuite.jpg",
+      alt:"Mains saississant un tuyau de canalisation avec une pince multiprise"
     },
     {
       title: "Réparation de chauffe-eau",
       description:
         "Panne, absence d’eau chaude ou problème de thermostat : nous réparons votre chauffe-eau électrique ou gaz rapidement, avec ou sans remplacement de pièces.",
       image: "/services/chauffe-eau-reparation.webp",
+      alt:"Techicien effectuant un réglage sur une chauffe eau mural"
     },
   ];
 
@@ -56,7 +59,7 @@ export default function DepannagePage() {
             <Grid container size={{ xs:12, md:6}}>
               <Image
                 src={service.image}
-                alt={service.title}
+                alt={service.alt}
                 width={600}
                 height={400}
                 style={{ width: "100%", height: "auto", borderRadius: "12px" }}
@@ -74,7 +77,6 @@ export default function DepannagePage() {
         ))}
       </Container>
       <ContactForm />
-      <Footer />
     </Box>
   );
 }
