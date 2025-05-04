@@ -1,14 +1,12 @@
 "use client";
 
-import { AppBar, Toolbar, Typography, Box, Button, IconButton, Drawer, List, ListItem, ListItemText, useMediaQuery, useTheme } from "@mui/material";
+import { AppBar, Toolbar, Typography, Box, Button, IconButton, useMediaQuery, useTheme } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useState } from "react";
 import Image from "next/image";
-import Logo from "../../../public/chauffexpress_logo.png"
+import Logo from "../../../public/chauffexpress_logo.png";
 
-const headerColor="rgba(71, 60, 68, 0.9)"; // Keep this headerColor
-
-
+const headerColor = "rgba(71, 60, 68, 0.9)"; // Keep this headerColor
 
 const navItems = [
   { label: "Accueil", href: "/", type: "anchor" },
@@ -23,10 +21,10 @@ const textColor = "#000000";
 export default function Header() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  const toggleDrawer = (open: boolean) => () => {
-    setDrawerOpen(open);
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
   };
 
   return (
@@ -45,30 +43,56 @@ export default function Header() {
     >
       <AppBar position="static" sx={{ backgroundColor: '#F5F5F5', backdropFilter: "blur(8px)" }} elevation={0}>
         <Toolbar sx={{ justifyContent: "space-between" }}>
-        <Image
-                src={Logo}
-                alt="Logo chauff express avec radiateur et flamme au dessus du texte"
-                width={50}
-                height={50}
-              />
-          
+          <Image
+            src={Logo}
+            alt="Logo chauff express avec radiateur et flamme au dessus du texte"
+            width={50}
+            height={50}
+          />
 
           {isMobile ? (
             <>
-              <IconButton edge="end" color="inherit" onClick={toggleDrawer(true)}>
+              <IconButton edge="end" color="inherit" onClick={toggleMenu}>
                 <MenuIcon sx={{ color: textColor }} />
               </IconButton>
-              <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}>
-                <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
-                  <List>
-                    {navItems.map((item) => (
-                      <ListItem key={item.href} component="a" href={item.href}>
-                        <ListItemText primary={item.label} />
-                      </ListItem>
-                    ))}
-                  </List>
-                </Box>
-              </Drawer>
+
+              {/* Box qui s'affiche en mode mobile */}
+              <Box
+                sx={{
+                  position: "fixed",
+                  top: 0,
+                  right: 0,
+                  width: "100%",
+                  height: "100vh", // Hauteur pleine
+                  backgroundColor: "rgba(71, 60, 68, 0.9)", // Fond semi-transparent
+                  display: menuOpen ? "block" : "none", // Affiche/Cache le menu selon l'état
+                  transition: "all 0.3s ease-in-out",
+                  zIndex: 1300,
+                  // display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  color: "white",
+                }}
+              >
+                {navItems.map((item) => (
+                  <Button
+                    key={item.href}
+                    href={item.href}
+                    sx={{
+                      color: "white",
+                      mx: 1,
+                      fontWeight: 500,
+                      textTransform: "none",
+                      fontSize: "1.2rem",
+                      my: 2,
+                    }}
+                    onClick={toggleMenu} // Ferme le menu quand un item est cliqué
+                  >
+                    {item.label}
+                  </Button>
+                ))}
+              </Box>
             </>
           ) : (
             <Box>
@@ -94,6 +118,4 @@ export default function Header() {
   );
 }
 
-export {
-  navItems
-}
+export { navItems };

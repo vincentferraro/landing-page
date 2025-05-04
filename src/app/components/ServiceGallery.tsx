@@ -5,6 +5,7 @@ import { Box, Grid, Typography } from '@mui/material'
 import Link from 'next/link'
 import Image from "next/image";
 
+
 const services = [
     {
         title: 'Chauffage',
@@ -34,22 +35,21 @@ export default function ServicesGallery() {
       </Typography>
 
       <Grid
-  container
-  spacing={4}
-  justifyContent="space-around"
-  sx={{ mt: 6 }}
->
+          container
+          spacing={4}
+          justifyContent="space-around"
+          sx={{ mt: 6 }}
+        >
   {services.map((service, index) => (
     <Grid
-      container
       key={index}
       size={{ xs:12, sm:6, md:4}}
-      sx={{ display: 'flex', justifyContent: 'center' }}
+      sx={{ display: 'flex', justifyContent: 'center', padding:2}}
     >
       <Link href={service.link} style={{ textDecoration: 'none' }}>
         <Box
           sx={{
-            width: 400,
+            width: 390,
             height: 450,
             position: 'relative',
             overflow: 'hidden',

@@ -1,22 +1,22 @@
-// /components/Hero.tsx
 'use client'
 import React, { useState, useEffect } from 'react';
-import { Box, Typography, IconButton, Grid, GlobalStyles} from '@mui/material';
+import { Box, Typography, IconButton, GlobalStyles } from '@mui/material';
+import Grid from '@mui/material/Grid';
 
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 
 const Hero = () => {
-  const [isVisible, setIsVisible] = useState(true);   // contrôle l'opacité
-  
+  const [isVisible, setIsVisible] = useState(true);
+
   useEffect(() => {
-    let timeoutId : NodeJS.Timeout;
+    let timeoutId: NodeJS.Timeout;
 
     const handleScroll = () => {
       if (window.scrollY > 50) {
-        timeoutId = setTimeout(()=>setIsVisible(false),300);  // d'abord opacité 0
+        timeoutId = setTimeout(() => setIsVisible(false), 300);
       } else {
-        
-        clearTimeout(timeoutId)
+        clearTimeout(timeoutId);
+        setIsVisible(true);
       }
     };
 
@@ -26,8 +26,7 @@ const Hero = () => {
 
   return (
     <>
-    {/* On injecte l'animation globalement */}
-    <GlobalStyles
+      <GlobalStyles
         styles={{
           '@keyframes bounce': {
             '0%, 100%': {
@@ -40,74 +39,83 @@ const Hero = () => {
         }}
       />
 
-    <Box
-      sx={{
-        backgroundImage: 'url(/presentation.jpg)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        height: '95vh',
-        display: 'flex',
-        justifyContent: 'flex-start',
-        alignItems: 'center',
-        paddingLeft: '50px',
-        color: 'white',
-        textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
-        position: 'relative', 
-      }}
-    >
-      <Grid container>
-        <Grid container size={{xs:12}}>
-          <Box>
-            <Typography variant="h2" sx={{ fontWeight: 'bold' }}>
-              Chauff'Express
-            </Typography>
-            <Typography variant="h4" sx={{ marginTop: '10px' }}>
+      <Box
+        sx={{
+          backgroundImage: 'url(/presentation.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          height: '95vh',
+          display: 'flex',
+          alignItems: 'center',
+          px: { xs: 2, sm: 4, md: 8 },
+          color: 'white',
+          textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
+          position: 'relative',
+        }}
+      >
+        <Grid container>
+          <Grid size={ {xs:12}}>
+            <Box>
+              <Typography
+                variant="h2"
+                sx={{
+                  fontWeight: 'bold',
+                  fontSize: { xs: '2.2rem', sm: '3rem', md: '4rem' },
+                }}
+              >
+                Chauff'Express
+              </Typography>
+              <Typography
+                variant="h5"
+                sx={{
+                  mt: 2,
+                  fontSize: { xs: '1.2rem', sm: '1.5rem', md: '2rem' },
+                }}
+              >
                 Votre expert du chauffage depuis 20 ans
-            </Typography>
-          </Box>
+              </Typography>
+            </Box>
+          </Grid>
         </Grid>
-      </Grid>
 
-      {/* Flèche vers le bas */}
-      {isVisible && (
-        <Box
-          sx={{
-            position: 'absolute',
-            bottom: '20px',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            cursor: 'pointer',
-            animation: 'bounce 1s infinite', 
-            opacity: isVisible ? 1 : 0,     
-            transition: 'opacity 1s ease', 
-            pointerEvents: isVisible ? 'auto' : 'none',
-          }}
-        >
-          {/* Cercle autour de la flèche */}
+        {isVisible && (
           <Box
             sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              width: '50px', // Taille du cercle
-              height: '50px', // Taille du cercle
-              borderRadius: '50%', // Forme circulaire
-              backgroundColor: 'rgba(255, 255, 255, 0.5)', // Couleur de fond (blanc transparent)
-              boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.3)', // Ombre légère autour du cercle
+              position: 'absolute',
+              bottom: '20px',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              animation: 'bounce 1s infinite',
+              opacity: isVisible ? 1 : 0,
+              transition: 'opacity 1s ease',
+              pointerEvents: isVisible ? 'auto' : 'none',
             }}
           >
-            <IconButton
-              onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
-              sx={{ color: 'white' }}
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                width: 50,
+                height: 50,
+                borderRadius: '50%',
+                backgroundColor: 'rgba(255, 255, 255, 0.5)',
+                boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.3)',
+              }}
             >
-              <ArrowDownwardIcon fontSize="large" />
-            </IconButton>
+              <IconButton
+                onClick={() =>
+                  window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })
+                }
+                sx={{ color: 'white' }}
+              >
+                <ArrowDownwardIcon fontSize="large" />
+              </IconButton>
+            </Box>
           </Box>
-        </Box>
-      )}
-    </Box>
+        )}
+      </Box>
     </>
-    
   );
 };
 
