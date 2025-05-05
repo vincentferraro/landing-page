@@ -1,34 +1,60 @@
-// components/ContactForm.tsx
 "use client";
 
-import { Box, Button, Grid, TextField, Typography, Divider } from "@mui/material";
+import {
+  Box,
+  Button,
+  Grid,
+  TextField,
+  Typography,
+  Divider
+} from "@mui/material";
 import Image from "next/image";
-import logo1 from "../../../public/partenaires/logo1.jpg"
+import logo1 from "../../../public/partenaires/logo1.jpg";
 import { useContactForm } from "../hooks/UseContactForm";
+
 const ContactForm = () => {
   const { formik, submitAttempted, setSubmitAttempted, emailSent } = useContactForm();
 
   return (
-    <Box id="contact" component="section" sx={{ p: 4, backgroundColor: "#f5f5f5"}} display='flex' justifyContent='center' >
-        <Grid container display='flex' flexDirection='row'>
-        <Grid container display='flex' flexDirection='column' size={{xs:5, md:5}} spacing={2} alignItems="center">
-          <Typography variant="h5" gutterBottom>Nos partenaires </Typography>
-            <Grid container size={{ xs:12, sm:12}} mt={4} height="auto" display="flex" flexDirection='row' justifyContent="center"  alignItems="center" flexWrap="wrap">
-                  <Grid display="flex" justifyContent="center"  alignItems="center"size={{xs:6, sm:6}} ><Image src={logo1}alt="Logo d'entreprise avec une flamme et le nom chauffage" width={100}height={100}style={{ objectFit: "contain" }}/></Grid>
-                  <Grid display="flex" justifyContent="center"  alignItems="center"size={{xs:6, sm:6}} > <Image src={logo1}alt="Logo d'entreprise avec une flamme et le nom chauffage" width={100}height={100}style={{ objectFit: "contain" }}/></Grid>
-                  <Grid display="flex" justifyContent="center"  alignItems="center"size={{xs:6, sm:6}} ><Image src={logo1}alt="Logo d'entreprise avec une flamme et le nom chauffage" width={100}height={100}style={{ objectFit: "contain" }}/></Grid>
-                  <Grid display="flex" justifyContent="center"  alignItems="center"size={{xs:6, sm:6}} > <Image src={logo1}alt="Logo d'entreprise avec une flamme et le nom chauffage" width={100}height={100}style={{ objectFit: "contain" }}/></Grid>
-                </Grid>
+    <Box
+      id="contact"
+      component="section"
+      sx={{ p: 4, backgroundColor: "#f5f5f5" }}
+    >
+      <Grid container spacing={4} alignItems="flex-start">
+        {/* Colonne partenaires */}
+        <Grid size={{xs:12, md:5}} >
+          <Typography variant="h5" gutterBottom align="center">
+            Nos partenaires
+          </Typography>
+          <Grid container spacing={2} justifyContent="center">
+            {[1, 2, 3, 4].map((_, i) => (
+              <Grid size={{ xs:6, sm:4, md:6}} key={i}>
+                <Image
+                  src={logo1}
+                  alt="Logo partenaire"
+                  width={100}
+                  height={100}
+                  style={{ objectFit: "contain" }}
+                />
+              </Grid>
+            ))}
+          </Grid>
         </Grid>
-        <Grid container size={{ xs:1, md:1}} display='flex' justifyContent='center'>
+
+        {/* Séparateur vertical (affiché seulement en md+) */}
+        <Grid size={{ md:1}} sx={{ display: { xs: "none", md: "flex" }, justifyContent: "center" }}>
           <Divider orientation="vertical" sx={{ height: "100%", borderColor: "#000000" }} />
         </Grid>
 
-        <Grid container size={{xs:5, md:5}} display='flex' flexDirection='column' justifyContent='center'>
-          <Typography variant="h5" gutterBottom>Contactez-nous</Typography>
+        {/* Formulaire de contact */}
+        <Grid size={{xs:12, md:6}} >
+          <Typography variant="h5" gutterBottom align="center">
+            Contactez-nous
+          </Typography>
           <form onSubmit={formik.handleSubmit}>
             <Grid container spacing={2}>
-              <Grid container size={{xs:12, sm:6}}>
+              <Grid size={{ xs:12 , sm:6}}>
                 <TextField
                   fullWidth
                   label="Nom"
@@ -39,7 +65,7 @@ const ContactForm = () => {
                   helperText={formik.touched.nom && formik.errors.nom}
                 />
               </Grid>
-              <Grid container size={{xs:12, sm:6}}>
+              <Grid  size={{ xs:12 , sm:6}}>
                 <TextField
                   fullWidth
                   label="Prénom"
@@ -50,7 +76,7 @@ const ContactForm = () => {
                   helperText={formik.touched.prenom && formik.errors.prenom}
                 />
               </Grid>
-              <Grid container size={{xs:12}}>
+              <Grid size={{xs:12}}>
                 <TextField
                   fullWidth
                   label="Numéro de téléphone"
@@ -61,7 +87,7 @@ const ContactForm = () => {
                   helperText={formik.touched.phone && formik.errors.phone}
                 />
               </Grid>
-              <Grid container size={{xs:12}}>
+              <Grid size={{ xs:12}}>
                 <TextField
                   fullWidth
                   label="Adresse email"
@@ -73,7 +99,7 @@ const ContactForm = () => {
                   helperText={formik.touched.email && formik.errors.email}
                 />
               </Grid>
-              <Grid container size={{xs:12}}>
+              <Grid size={{ xs:12}}>
                 <TextField
                   fullWidth
                   label="Message"
@@ -86,20 +112,20 @@ const ContactForm = () => {
                   helperText={formik.touched.message && formik.errors.message}
                 />
               </Grid>
-              <Grid container size={{xs:12}} display='flex' flexDirection={'column'} justifyContent='center' justifyItems='center'>
+              <Grid size={{ xs:12}}>
                 <Button type="submit" variant="contained" fullWidth>
                   Envoyer
                 </Button>
                 {emailSent && (
                   <Typography color="success.main" textAlign="center" sx={{ mt: 2 }}>
                     ✅ Votre message a bien été envoyé.
-                  </Typography>)}
+                  </Typography>
+                )}
               </Grid>
             </Grid>
           </form>
-          
         </Grid>
-        </Grid>
+      </Grid>
     </Box>
   );
 };

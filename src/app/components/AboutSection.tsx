@@ -28,7 +28,7 @@ export default function AboutSection() {
           <Box
             component="img"
             src="/equipe.jpg"
-            alt="Equipe de 3 personnes, 2 hommes et 1 femme bras croisé habillé professionnellement"
+            alt="Equipe de 3 personnes, 2 hommes et 1 femme, bras croisé habillé professionnellement"
             sx={{
               width: "100%",
               height: "auto",
