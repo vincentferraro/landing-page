@@ -6,19 +6,17 @@ import {
   Grid,
   TextField,
   Typography,
-  Divider,
   useMediaQuery,
   useTheme,
 } from "@mui/material";
 import Image from "next/image";
 import logo1 from "../../../public/partenaires/logo1.jpg";
 import { useContactForm } from "../hooks/UseContactForm";
-import { height } from "@mui/system";
 
 const ContactForm = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const { formik, submitAttempted, setSubmitAttempted, emailSent } = useContactForm();
+  const { formik, emailSent } = useContactForm();
 
   console.log("IsMobile?", isMobile)
 

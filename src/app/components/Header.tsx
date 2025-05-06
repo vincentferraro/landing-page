@@ -1,12 +1,11 @@
 "use client";
 
-import { AppBar, Toolbar, Typography, Box, Button, IconButton, useMediaQuery, useTheme, List, ListItem, ListItemButton, ListItemText, SwipeableDrawer } from "@mui/material";
+import { AppBar, Toolbar, Box, Button, IconButton, useMediaQuery, useTheme, List, ListItem, ListItemButton, ListItemText, SwipeableDrawer } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useState } from "react";
 import Image from "next/image";
 import Logo from "../../../public/chauffexpress_logo.png";
 ;
-const headerColor = "rgba(71, 60, 68, 0.9)"; // Keep this headerColor
 
 type Anchor = 'top' | 'left' | 'bottom' | 'right';
 
@@ -62,7 +61,7 @@ export default function Header() {
         onKeyDown={toggleDrawer(anchor, false)}
       >
         <List>
-          {navItems.map((item, index) => (
+          {navItems.map((item) => (
             <ListItem key={item.label} disablePadding>
               <ListItemButton href={item.href}>
                 <ListItemText primary={item.label} />
