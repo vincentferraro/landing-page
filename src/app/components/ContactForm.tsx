@@ -6,30 +6,39 @@ import {
   Grid,
   TextField,
   Typography,
-  Divider
+  Divider,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import Image from "next/image";
 import logo1 from "../../../public/partenaires/logo1.jpg";
 import { useContactForm } from "../hooks/UseContactForm";
+import { height } from "@mui/system";
 
 const ContactForm = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const { formik, submitAttempted, setSubmitAttempted, emailSent } = useContactForm();
+
+  console.log("IsMobile?", isMobile)
 
   return (
     <Box
       id="contact"
       component="section"
-      sx={{ p: 4, backgroundColor: "#f5f5f5" }}
+      sx={{ p: 4, backgroundColor: "#f5f5f5", height:"auto"}}
+
     >
-      <Grid container spacing={4} alignItems="flex-start">
+      <Grid container spacing={4} >
         {/* Colonne partenaires */}
-        <Grid size={{xs:12, md:5}} >
+        <Grid size={{xs:12, md:6}} sx={{  height:"auto"}} display={"flex"} flexDirection="column" alignItems="center">
           <Typography variant="h5" gutterBottom align="center">
             Nos partenaires
           </Typography>
-          <Grid container spacing={2} justifyContent="center">
+          <Grid container height="auto" padding={6} spacing={5} justifyContent="center">
+            {/*  Modiifier photos des partenaires ci dessous */}
             {[1, 2, 3, 4].map((_, i) => (
-              <Grid size={{ xs:6, sm:4, md:6}} key={i}>
+              <Grid size={{ xs:6, sm:3, md:6}} key={i}>
                 <Image
                   src={logo1}
                   alt="Logo partenaire"
@@ -40,11 +49,7 @@ const ContactForm = () => {
               </Grid>
             ))}
           </Grid>
-        </Grid>
-
-        {/* Séparateur vertical (affiché seulement en md+) */}
-        <Grid size={{ md:1}} sx={{ display: { xs: "none", md: "flex" }, justifyContent: "center" }}>
-          <Divider orientation="vertical" sx={{ height: "100%", borderColor: "#000000" }} />
+          
         </Grid>
 
         {/* Formulaire de contact */}

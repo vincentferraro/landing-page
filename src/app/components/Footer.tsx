@@ -41,7 +41,7 @@ export default function Footer() {
         {/* Colonne droite : Plan du site */}
         <Grid container size={{xs:12, md:6}} display='flex' justifyContent='center'>
 
-          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems:'center', justifyContent:'center', gap: 1 }}>
 
             { navItems.map((item,key)=>{
               return(
