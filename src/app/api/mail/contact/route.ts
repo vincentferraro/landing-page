@@ -1,4 +1,6 @@
 // src/app/api/mail/contact/route.ts
+export const dynamic = "force-dynamic";
+
 import { NextResponse } from 'next/server';
 import * as nodemailer from 'nodemailer';
 
@@ -35,7 +37,7 @@ export async function POST(req: Request) {
   try {
     const info = await transporter.sendMail({
       from: `"${prenom} ${nom}" <${email}>`,
-      to: process.env.ETHERAL_EMAIL,
+      to: process.env.ETHEREAL_EMAIL,
       subject: 'Nouveau message via le formulaire de contact',
       text: mailBody,
     });
