@@ -46,8 +46,8 @@ export default function AboutSection() {
           <Typography variant="body1" color="text.secondary">
             Depuis plusieurs années, notre entreprise met son expertise au
             service des particuliers et des professionnels. Spécialisés dans le
-            domaine du chauffage, de l`&apos;`installation et du dépannage, nous
-            mettons un point d`&apos;`honneur à offrir des prestations de qualité,
+            domaine du chauffage, de l&apos;installation et du dépannage, nous
+            mettons un point d&apos;honneur à offrir des prestations de qualité,
             fiables et adaptées à vos besoins.
           </Typography>
         </Grid>

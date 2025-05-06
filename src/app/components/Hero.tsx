@@ -63,7 +63,7 @@ const Hero = () => {
                   fontSize: { xs: '2.2rem', sm: '3rem', md: '4rem' },
                 }}
               >
-                Chauff`&apos;`Express
+                Chauff&apos;Express
               </Typography>
               <Typography
                 variant="h5"

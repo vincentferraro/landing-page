@@ -12,7 +12,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Head>
-        <title>Chauff`&apos;`Express – Chauffage & Sanitaire</title>
+        <title>Chauff&apos;Express – Chauffage & Sanitaire</title>
         <meta name="description" content="Spécialistes en installation de chauffage, dépannage et sanitaires. Interventions rapides et de qualité." />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://www.monsite.fr/" />
