@@ -10,16 +10,19 @@ const services = [
     {
         title: 'Chauffage',
         image: '/services/installation.png',
+        alt:"Chaudière murale",
         link:"/services/chauffage"
       },
   {
     title: 'Sanitaire',
     image: '/services/sanitaire.avif',
+    alt:"Salle de bains",
     link:"/services/sanitaire"
   },
   {
     title: 'Dépannage',
     image: '/services/remplacement.png',
+    alt:"Intérieur de chaudière",
     link:"/services/depannage"
   },
 ]
@@ -67,7 +70,7 @@ export default function ServicesGallery() {
         >
           <Image
             src={service.image}
-            alt={service.title}
+            alt={service.alt}
             fill
             className="service-img"
             style={{

@@ -63,7 +63,7 @@ export default function Header() {
         <List>
           {navItems.map((item) => (
             <ListItem key={item.label} disablePadding>
-              <ListItemButton href={item.href}>
+              <ListItemButton href={item.href} aria-label={item.label}>
                 <ListItemText primary={item.label} />
               </ListItemButton>
             </ListItem>
@@ -147,6 +147,7 @@ export default function Header() {
                     fontWeight: 500,
                     textTransform: "none",
                   }}
+                  aria-label={item.label}
                 >
                   {item.label}
                 </Button>

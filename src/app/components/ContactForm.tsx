@@ -111,7 +111,7 @@ const ContactForm = () => {
                 />
               </Grid>
               <Grid size={{ xs:12}}>
-                <Button type="submit" variant="contained" fullWidth>
+                <Button type="submit" variant="contained" fullWidth aria-label="Envoyer">
                   Envoyer
                 </Button>
                 {emailSent && (

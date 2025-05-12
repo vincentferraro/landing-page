@@ -1,9 +1,15 @@
 import "./globals.css";
+import { Metadata } from "next";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Head from "next/head";
 
 
+export const metadata: Metadata = {
+  title: "Chauff'Express – Chauffage & Sanitaire",
+  description: "Spécialistes en installation de chauffage, dépannage et sanitaires. Interventions rapides et de qualité.",
+  robots: "index, follow",
+  
+};
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -11,12 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Head>
-        <title>Chauff&apos;Express – Chauffage & Sanitaire</title>
-        <meta name="description" content="Spécialistes en installation de chauffage, dépannage et sanitaires. Interventions rapides et de qualité." />
-        <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://www.monsite.fr/" />
-      </Head>
+      
       <body>
             <Header/>
             {children}

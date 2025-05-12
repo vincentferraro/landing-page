@@ -22,16 +22,16 @@ export default function Footer() {
           {/* <Box sx={{ mt: 2 }} display='flex' flexDirection='column'> */}
           
             <Box mt={2}>
-              <IconButton href="https://facebook.com" target="_blank" rel="noopener" sx={{ color: 'white' }}>
+              <IconButton href="https://facebook.com" target="_blank" rel="noopener" sx={{ color: 'white' }} aria-label="facebook">
                 <Facebook />
               </IconButton>
-              <IconButton href="https://twitter.com" target="_blank" rel="noopener" sx={{ color: 'white' }}>
+              <IconButton href="https://twitter.com" target="_blank" rel="noopener" sx={{ color: 'white' }} aria-label="twitter">
                 <Twitter />
               </IconButton>
-              <IconButton href="https://instagram.com" target="_blank" rel="noopener" sx={{ color: 'white' }}>
+              <IconButton href="https://instagram.com" target="_blank" rel="noopener" sx={{ color: 'white' }} aria-label="instagram">
                 <Instagram />
               </IconButton>
-              <IconButton href="https://linkedin.com" target="_blank" rel="noopener" sx={{ color: 'white' }}>
+              <IconButton href="https://linkedin.com" target="_blank" rel="noopener" sx={{ color: 'white' }} aria-label="linkedin">
                 <LinkedIn />
               </IconButton>
             {/* </Box> */}

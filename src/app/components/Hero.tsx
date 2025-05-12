@@ -116,7 +116,7 @@ const Hero = () => {
                 onClick={() =>
                   window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })
                 }
-                sx={{ color: 'white' }}
+                sx={{ color: 'white' }} aria-label="arrow"
               >
                 <ArrowDownwardIcon fontSize="large" />
               </IconButton>
