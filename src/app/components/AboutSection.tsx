@@ -3,6 +3,8 @@
 "use client";
 
 import { Box, Grid, Typography } from "@mui/material";
+import Image from "next/image";
+import equipe from "../../../public/equipe.webp"
 
 export default function AboutSection() {
   return (
@@ -24,18 +26,19 @@ export default function AboutSection() {
 
       <Grid container spacing={4} alignItems="center">
         {/* Image à gauche */}
-        <Grid container size={{ xs:12, md:6}} >
+        <Grid size={{ xs:12, md:6}} >
           <Box
-            component="img"
-            src="/equipe.jpg"
-            alt="Equipe de 3 personnes, 2 hommes et 1 femme, bras croisé habillé professionnellement"
             sx={{
               width: "100%",
-              height: "auto",
+              height: "100%",
               borderRadius: 2,
               boxShadow: 3,
+              overflow: "hidden"
             }}
-          />
+          >
+            <Image style={{ objectFit:"cover"}} src={equipe} alt="Equipe de 3 personnes, 2 hommes et 1 femme, bras croisé habillé professionnellement" />
+          </Box>
+
         </Grid>
 
         {/* Texte à droite */}

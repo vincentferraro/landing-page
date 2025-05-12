@@ -2,9 +2,10 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Typography, IconButton, GlobalStyles } from '@mui/material';
 import Grid from '@mui/material/Grid';
-
+import Image from "next/image"
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 
+import presentation from "../../../public/presentation.webp"
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(true);
 
@@ -41,9 +42,6 @@ const Hero = () => {
 
       <Box
         sx={{
-          backgroundImage: 'url(/presentation.jpg)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
           height: '95vh',
           display: 'flex',
           alignItems: 'center',
@@ -53,6 +51,17 @@ const Hero = () => {
           position: 'relative',
         }}
       >
+        <Box style ={{
+          height:'95vh',
+          width:'100%',
+          left:0,
+          top:0,
+          position:'absolute',
+          zIndex:'-1',
+          overflow:'hidden'
+        }}>
+          <Image fill style={{ objectFit:"cover"}} src={presentation} alt="Technicien travaillant sur un appareil de chauffage " />
+        </Box>
         <Grid container>
           <Grid size={ {xs:12}}>
             <Box>
