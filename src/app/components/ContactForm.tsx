@@ -5,17 +5,13 @@ import {
   Button,
   Grid,
   TextField,
-  Typography,
-  useMediaQuery,
-  useTheme,
+  Typography
 } from "@mui/material";
 import Image from "next/image";
 import logo1 from "../../../public/partenaires/logo1.jpg";
 import { useContactForm } from "../hooks/UseContactForm";
 
 const ContactForm = () => {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const { formik, emailSent } = useContactForm();
 
 
