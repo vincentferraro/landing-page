@@ -1,0 +1,34 @@
+{
+    "title":"Nos services de dépannage",
+    "description":"Une urgence ? Notre équipe de professionnels intervient rapidement pour résoudre vos problèmes les plus techniques.",
+    "services": [
+        {
+          "title": "Réparation de chaudière",
+          "description":
+            "Nos techniciens interviennent rapidement pour diagnostiquer et réparer tous types de chaudières (gaz, fioul, à condensation), assurant sécurité et performance.",
+          "image": "/services/chaudiere-reparation.jpg",
+          "alt":"Technicien effectuant des réparations sur une chaudière"
+        },
+        {
+          "title": "Débouchage de canalisation",
+          "description":
+            "Grâce à des équipements professionnels (caméras, furet électrique), nous débouchons efficacement vos canalisations, même en cas de bouchon profond ou récurrent.",
+          "image": "/services/debouchage.jpg",
+          "alt":"Technicien insérant un tube dans une canalisation"
+        },
+        {
+          "title": "Réparation de fuites",
+          "description":
+            "Fuites visibles ou encastrées ? Nous intervenons avec précision pour localiser et réparer vos fuites d’eau sans dégâts inutiles.",
+          "image": "/services/fuite.jpg",
+          "alt":"Mains saississant un tuyau de canalisation avec une pince multiprise"
+        },
+        {
+          "title": "Réparation de chauffe-eau",
+          "description":
+            "Panne, absence d’eau chaude ou problème de thermostat : nous réparons votre chauffe-eau électrique ou gaz rapidement, avec ou sans remplacement de pièces.",
+          "image": "/services/chauffe-eau-reparation.webp",
+          "alt":"Techicien effectuant un réglage sur une chauffe eau mural"
+        }
+      ]
+}

@@ -18,7 +18,6 @@ const ContactForm = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const { formik, emailSent } = useContactForm();
 
-  console.log("IsMobile?", isMobile)
 
   return (
     <Box
